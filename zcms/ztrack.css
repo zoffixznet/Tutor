@@ -1,0 +1,36 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background: #D9E5E7;
+    font-size: 82.6666313%;
+}
+
+h1 {
+    font-size: 120%;
+    font-weight: normal;
+    color: #57889F;
+    margin: 10px 0;
+}
+
+p {
+    line-height: 2.2;
+    margin: 10px 0;
+    text-align: justify;
+}
+
+#main {
+    width: 500px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    background: #fff;
+    padding: 10px;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}

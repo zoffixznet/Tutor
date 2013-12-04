@@ -1,0 +1,15 @@
+<form action="" method="POST">
+<div>
+    <input type="hidden" name="page" value="/hl">
+    
+    <label for="css">CSS: </label
+    ><textarea id="css" name="css" cols="80" rows="15"><tmpl_var escape='html' name='css'></textarea>
+    <br>
+    <label for="html">HTML: </label
+    ><textarea id="html" name="html" cols="80" rows="15"><tmpl_var escape='html' name='html'></textarea>
+    <br>
+    <input type="submit" name="do" value="Highlight">
+</div>
+</form>
+
+<div><a href="/hl?no=1">RESET</a></div>

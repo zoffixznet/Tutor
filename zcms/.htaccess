@@ -1,0 +1,51 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www\.zoffix\.com
+RewriteRule (.*) http://zoffix.com/$1 [R=301,L]
+
+Redirect permanent /zoffix/css/ie/haslayout.shtml http://haslayout.net/haslayout
+Redirect permanent /zoffix/css/ie/haslayout.shtml http://haslayout.net/haslayout
+Redirect permanent /css/ie/haslayout.shtml http://haslayout.net/haslayout
+Redirect permanent /zoffix/css/ie/condcom.shtml http://haslayout.net/condcom
+Redirect permanent /zoffix/css/ie/negmargin.shtml http://haslayout.net/css/view?tut=Negative-Margin-Bug
+Redirect permanent /zoffix/css/ie/peekaboobug.shtml http://haslayout.net/css/view?tut=Disappearing-Content-Bug
+Redirect permanent /zoffix/css/ie/doublemargin.shtml http://haslayout.net/css/view?tut=Double-Margin-Bug
+Redirect permanent /zoffix/css/ie/threepxbug.shtml http://haslayout.net/css/view?tut=3px-Gap-Bug-aka-Text-Jog-Bug
+Redirect permanent /zoffix/css/ie/italicsfloatbug.shtml http://haslayout.net/css/view?tut=Italics-Float-Bug
+Redirect permanent /zoffix/css/ie/nobackground.shtml http://haslayout.net/css/view?tut=Disappearing-Content-Bug
+Redirect permanent /css/ie/nobackground.shtml http://haslayout.net/css/view?tut=Disappearing-Content-Bug
+Redirect permanent /zoffix/css/ie/extrawidth.shtml http://haslayout.net/css/view?tut=Expanding-Width-Bug
+Redirect permanent /zoffix/css/ie/nocontent.shtml http://haslayout.net/css/view?tut=Disappearing-Content-Bug
+Redirect permanent /zoffix/css/center.shtml http://haslayout.net/css-tuts/view?tut=Horizontal-Centering
+Redirect permanent /css/center http://haslayout.net/css-tuts/view?tut=Horizontal-Centering
+Redirect permanent /zoffix/css/vertcenter.shtml http://haslayout.net/css-tuts/view?tut=Vertical-Centering
+Redirect permanent /css/vertcenter.shtml http://haslayout.net/css-tuts/view?tut=Vertical-Centering
+Redirect permanent /zoffix/css/imagescaling.shtml http://haslayout.net/css-tuts/view?tut=CSS-Proportional-Image-Scale
+Redirect permanent /css/imagescale.shtml http://haslayout.net/css-tuts/view?tut=CSS-Proportional-Image-Scale
+Redirect permanent /contact.pl http://zoffix.com/contact
+Redirect permanent /contact.shtml http://zoffix.com/contact
+
+
+RewriteCond %{REQUEST_URI} !/new
+RewriteCond %{REQUEST_URI} !/other/index$
+RewriteCond %{REQUEST_URI} !/other/view$
+RewriteRule ^other/(([^/]*/)*[^./]+)$ index.pl?page=/other/view&article=$1 [PT,QSA]
+
+RewriteCond %{REQUEST_URI} !/new
+RewriteCond %{REQUEST_URI} !/food/index$
+RewriteCond %{REQUEST_URI} !/food/view$
+RewriteRule ^food/(([^/]*/)*[^./]+)$ index.pl?page=/food/view&article=$1 [PT,QSA]
+
+RewriteCond %{REQUEST_URI} !/new
+RewriteCond %{REQUEST_URI} !/psychology/index$
+RewriteCond %{REQUEST_URI} !/psychology/view$
+RewriteRule ^psychology/(([^/]*/)*[^./]+)$ index.pl?page=/psychology/view&article=$1 [PT,QSA]
+
+#RewriteRule ^css/$ index.pl\?page\=css/ [L,QSA]
+RewriteCond %{REQUEST_URI} !/new
+RewriteRule ^(([^/]*/)*[^./]+)/$ $1/index [PT,QSA]
+RewriteCond %{REQUEST_URI} !/new
+RewriteRule ^(([^/]*/)*[^./]+)/?$ index.pl\?page\=$1 [L,PT,QSA]
+
+

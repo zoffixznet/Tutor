@@ -1,0 +1,21 @@
+use strict;
+use warnings;
+
+{
+    body => \'index.tmpl',
+    title => 'Index Test',
+    plugins => [
+        { Tutor   => 1000, },
+    ],
+
+    plug_tutor => {
+        dsn     => "DBI:mysql:database=test;host=localhost",
+        user    => 'root',
+        pass    => undef,
+        table_prefix    => 'tutor_',
+#         user_id         => sub { shift->{d}{user}{id} },
+        user_id         => 1,
+        run_tutorial    => [qw/add delete send_email/],
+#         create_tables => 1,
+    },
+};

@@ -1,0 +1,30 @@
+use strict;
+use warnings;
+
+{
+    valid_pages => {
+        dirs => [
+            '/',
+            '/test/',
+            '/test/t/',
+        ],
+    },
+    data_store => '../zcms_site/data',
+    templates    => '../zcms_site/templates',
+    template_defaults => {
+        conf => {
+            base => 'base.tmpl',
+        },
+        plugins => [
+            { ConfigToTemplate => 2000 },
+        ],
+    },
+
+    plug_config_to_template => {},
+
+    public_config => {
+        name => 'test',
+        value => 'plug_test',
+    },
+
+}

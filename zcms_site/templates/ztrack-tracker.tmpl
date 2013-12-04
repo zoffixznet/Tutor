@@ -1,0 +1,36 @@
+use strict;
+use warnings;
+use Data::Dumper;
+
+{
+    body => \'ztrack-tracker.tmpl',
+    title => 'Ztrack-tracker',
+    
+    plugins => [
+        { Sub => 2000 },
+    ],
+    
+    plug_sub => sub {
+        my ( $t, $q ) = @_;
+        
+        if ( $q->{getztrack} ) {
+            print "Content-type: text/plain\n\n";
+            open my $fh, '<', 'out.txt'
+                or die $!;
+            
+            my @out;
+            while (<$fh>) {
+                chomp;
+                push @out, $_;
+            }
+            print join ';', @out;
+            exit;
+        }
+        
+        
+        open my $fh, '>>', 'out.txt'
+            or die $!;
+
+        print $fh "$q->{ztrack}\n";
+    }
+}

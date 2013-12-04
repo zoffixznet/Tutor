@@ -1,0 +1,37 @@
+{
+    body => \'hl.tmpl',
+    title => 'Hl',
+    plugins     => [
+        { Sub => 2000 },
+        { 'Syntax::Highlight::HTML' => 3000 },
+        { 'Syntax::Highlight::CSS' => 3000 },
+    ],
+
+    plugins2    => [
+        { Sub => 2000 },
+    ],
+
+    plug_sub => sub {
+        my ( $t, $q ) = @_;
+        return
+            if $q->{no};
+
+        $t->{highlight_html}{html} = $q->{html};
+        $t->{highlight_css}{css} = $q->{css};
+
+        $t->{plug_sub} = $t->{plug_sub2};
+    },
+    highlight_html => {
+    },
+    highlight_html_before => '',
+    highlight_html_after  => '',
+    highlight_css => {
+    },
+    highlight_css_before => '',
+    highlight_css_after  => '',
+
+    plug_sub2 => sub {
+        my $t = shift;
+        $t->{t}{html} =~ s/^<pre>\s+/<pre>/;
+    },
+}
